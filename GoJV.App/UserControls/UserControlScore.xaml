@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="GoJV.App.UserControls.UserControlScore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GoJV.App.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="150">
+    <Grid >
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="10,10,10,10">
+            <MediaElement x:Name="mediaScoreSound">
+            </MediaElement>
+            <TextBlock Text="0" HorizontalAlignment="Center" x:Name="tbScore" Opacity="0.0" FontSize="24">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <Rectangle RadiusX="10" RadiusY="10" Width="120" Height="0" x:Name="rectScore" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+                <Rectangle.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard  SlipBehavior="Slip">
+                                <DoubleAnimation Storyboard.TargetProperty="Height" x:Name="doubleAnimationRectDrawing" />
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="tbScore" From="0.0" To="1.0" Name="doubleAnimationScoreOpacity"/>
+                                <MediaTimeline Storyboard.TargetName="mediaScoreSound" Name="mediaTimeLineSound"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Rectangle.Triggers>
+            </Rectangle>
+            <TextBlock Text="Equipe" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="teamName" Margin="10" FontSize="30">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

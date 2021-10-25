@@ -1,0 +1,60 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
+        xmlns:local="clr-namespace:GoJV.App"
+        xmlns:DAL="clr-namespace:GoJV.DAL;assembly=GoJV.DAL" x:Class="GoJV.App.WindowTeams"
+        mc:Ignorable="d"
+        Title="WindowTeams" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lstTeams" ItemsSource="{Binding}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView AllowsColumnReorder="true">
+                    <GridViewColumn Header="Nom" Width="400" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="{Binding Color}" HorizontalAlignment="Stretch">
+                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" />
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Column="1" Margin="5,0,-5,0" >
+            <TextBox  x:Name="tbName" Margin="10,10,10,10" FontSize="20"/>
+            <ComboBox Name="cbColor" Margin="10,10,10,10" FontSize="20">
+                <ComboBoxItem Background="Goldenrod" Name="Goldenrod" >
+                    Goldenrod
+                </ComboBoxItem>
+                <ComboBoxItem Background="Magenta" Name="Magenta" >
+                    Magenta
+                </ComboBoxItem>
+                <ComboBoxItem Background="Cyan" Name="Cyan" >
+                    Cyan
+                </ComboBoxItem>
+                <ComboBoxItem Background="PaleVioletRed" Name="PaleVioletRed" >
+                    PaleVioletRed
+                </ComboBoxItem>
+                <ComboBoxItem Background="Coral" Name="Coral" >
+                    Coral
+                </ComboBoxItem>
+            </ComboBox>
+            <Button Content="Valider" FontSize="15" Margin="10,10,10,10" x:Name="btSubmit" Click="btSubmit_Click"/>
+            <Button Content="Supprimer" FontSize="15" Margin="10,10,10,10" x:Name="btDelete" Click="btDelete_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

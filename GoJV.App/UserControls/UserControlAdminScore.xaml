@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="GoJV.App.UserControls.UserControlAdminScore"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GoJV.App.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock FontSize="24" FontWeight="Bold" Margin="10" Name="tbName"></TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBox Width="100" Margin="20,0,10,0" Name="tbScore">
+                </TextBox>
+                <Button Content="valider" Width="79" Click="Button_Click"></Button>
+                <TextBlock Text="Score" Margin="10,0,0,0" Width="79" Name="tbCurrentScore"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
